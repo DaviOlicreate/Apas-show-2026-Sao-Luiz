@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Estratégico APAS 2026 | São Luiz</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0d0b', 
+                            darker: '#050706',
+                            light: '#F8F9FA',
+                            gold: '#bda662', 
+                            goldHover: '#a38d4f',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Fraunces', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        .marble-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+
+        .accordion-content {
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        ::selection {
+            background-color: #bda662;
+            color: #050706;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050706; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bda662; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a38d4f; 
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-light font-body antialiased selection:bg-brand-gold selection:text-brand-darker relative">
+
+    <!-- Navbar -->
+    <header id="main-header" class="fixed top-0 w-full z-50 py-6 bg-gradient-to-b from-black/80 to-transparent transition-all duration-300 backdrop-blur-sm">
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="text-xl md:text-2xl font-heading text-brand-gold font-light tracking-widest uppercase">
+                    SÃO LUIZ<br/><span class="text-sm md:text-base text-brand-light">Inovação 2026</span>
+                </div>
+            </a>
+            
+            <!-- Navigation Links (Desktop) -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#hero" class="text-sm text-brand-light hover:text-brand-gold transition-colors tracking-widest uppercase text-[10px]">Início</a>
+                <a href="#resumo" class="text-sm text-brand-light hover:text-brand-gold transition-colors tracking-widest uppercase text-[10px]">O Manifesto</a>
+                <a href="#oportunidades" class="text-sm text-brand-light hover:text-brand-gold transition-colors tracking-widest uppercase text-[10px]">Oportunidades</a>
+                <a href="#projetos" class="text-sm text-brand-light hover:text-brand-gold transition-colors tracking-widest uppercase text-[10px]">Projetos</a>
+                <a href="#roadmap" class="text-sm text-brand-light hover:text-brand-gold transition-colors tracking-widest uppercase text-[10px]">Roadmap</a>
+            </nav>
+
+            <div class="flex items-center gap-6">
+                <a href="#cta" class="hidden md:flex items-center gap-3 border border-brand-gold text-brand-gold px-6 py-2.5 hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 uppercase text-[10px] tracking-widest">
+                    <span>Aprovar Piloto</span>
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+                
+                <button id="mobile-menu-btn" class="lg:hidden text-brand-gold hover:text-brand-light transition-colors focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sessão 1: Hero -->
+    <section id="hero" class="relative h-[100vh] min-h-[700px] flex items-center pt-24 pb-12 overflow-hidden bg-brand-dark">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="./bg-hero-apas2026.webp" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80'" alt="Inovação no Varejo" class="w-full h-full object-cover opacity-30">
+        </div>
+        
+        <div class="absolute inset-0 z-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/40 to-transparent"></div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col md:flex-row items-center">
+            <div class="flex-1 text-left mt-24 md:mt-40 max-w-4xl fade-in-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="h-[1px] w-12 bg-brand-gold"></div>
+                    <span class="text-brand-gold tracking-widest uppercase text-xs font-light">
+                        RELATÓRIO EXECUTIVO • APAS SHOW 2026
+                    </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading leading-tight mb-6 text-brand-light font-light drop-shadow-lg">
+                    Inovação e Estratégia <br/>
+                    <span class="text-brand-gold italic">O Futuro Operacional.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-300 mb-10 font-light max-w-2xl leading-relaxed drop-shadow-md">
+                    Um mapeamento estratégico das tecnologias que vão reduzir a dependência de mão de obra, estancar perdas e transformar a experiência do nosso cliente, com retorno sobre o investimento (ROI) validado.
+                </p>
+                
+                <a href="#projetos" class="inline-flex items-center justify-center border border-brand-gold bg-brand-gold/10 backdrop-blur-sm hover:bg-brand-gold hover:text-brand-darker text-brand-gold px-8 py-4 transition-all duration-500 uppercase text-xs tracking-widest group">
+                    <span>Explorar as Iniciativas Estratégicas</span>
+                    <svg class="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão 2: Resumo Executivo (Manifesto) -->
+    <section id="resumo" class="py-24 bg-brand-dark relative overflow-hidden marble-bg">
+        <div class="absolute inset-0 bg-brand-dark/95 z-0"></div>
+        
+        <div class="container mx-auto px-6 lg:px-12 max-w-5xl relative z-10 text-center fade-in-up">
+            <div class="flex items-center justify-center gap-4 mb-6">
+                <div class="h-[1px] w-8 bg-brand-gold"></div>
+                <span class="text-brand-gold uppercase text-[10px] tracking-widest">O Manifesto</span>
+                <div class="h-[1px] w-8 bg-brand-gold"></div>
+            </div>
+            <h2 class="text-4xl md:text-6xl font-heading text-brand-light mb-12 font-light leading-snug">
+                A Mudança é <br/>
+                <span class="italic text-brand-gold">Operacional e Cultural.</span>
+            </h2>
+            <p class="text-gray-400 font-light leading-relaxed mb-6 text-xl max-w-4xl mx-auto">
+                O varejo pós-2026 foca na tecnologia não apenas para cortar custos, mas para suprir a grave escassez de mão de obra operacional.
+            </p>
+            <p class="text-gray-400 font-light leading-relaxed mb-10 text-xl max-w-4xl mx-auto">
+                O que vimos na APAS Show deixa claro: precisamos investir em automação de preparo e inteligência de caixa para garantir a escalabilidade e a excelência que os clientes do São Luiz esperam e merecem.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sessão 3: Oportunidades Grid (Estilo Especialidades) -->
+    <section id="oportunidades" class="py-24 scroll-mt-24">
+        <!-- Substituindo as imagens por classes de gradiente escuro -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-1 px-1">
+
+            <!-- Card 1 -->
+            <div class="relative h-[400px] md:h-[500px] overflow-hidden group cursor-pointer fade-in-up">
+                <div class="absolute inset-0 bg-brand-darker transition-transform duration-1000 group-hover:scale-105 group-hover:bg-[#111]"></div>
+                <!-- Borda sutil dourada no topo de cada card para detalhe premium -->
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+                
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8 z-10">
+                    <h3 class="text-2xl md:text-4xl font-heading text-white mb-6 font-light">Fidelidade + <span class="italic text-brand-gold">Experiência</span></h3>
+                    <p class="text-gray-300 font-light opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-base max-w-md">
+                        Lojas que não gritam no caixa, não demoram na pesagem e agradam o cliente visualmente, criando um ambiente de compras sereno e sofisticado.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="relative h-[400px] md:h-[500px] overflow-hidden group cursor-pointer fade-in-up" style="transition-delay: 100ms;">
+                <div class="absolute inset-0 bg-brand-darker transition-transform duration-1000 group-hover:scale-105 group-hover:bg-[#111]"></div>
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+                
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8 z-10">
+                    <h3 class="text-2xl md:text-4xl font-heading text-white mb-6 font-light">Calendário <span class="italic text-brand-gold">Promocional Forte</span></h3>
+                    <p class="text-gray-300 font-light opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-base max-w-md">
+                        Nossa agenda promocional amplificada e atualizada em segundos através de Painéis de LED e estratégias modernas de Retail Media.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="relative h-[400px] md:h-[500px] overflow-hidden group cursor-pointer fade-in-up" style="transition-delay: 200ms;">
+                <div class="absolute inset-0 bg-brand-darker transition-transform duration-1000 group-hover:scale-105 group-hover:bg-[#111]"></div>
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+                
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8 z-10">
+                    <h3 class="text-2xl md:text-4xl font-heading text-white mb-6 font-light">Relacionamento <span class="italic text-brand-gold">Regional</span></h3>
+                    <p class="text-gray-300 font-light opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-base max-w-md">
+                        Vender mídia interna para grandes indústrias locais, transformando nosso espaço físico em uma nova e rentável linha de receita.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="relative h-[400px] md:h-[500px] overflow-hidden group cursor-pointer fade-in-up" style="transition-delay: 300ms;">
+                <div class="absolute inset-0 bg-brand-darker transition-transform duration-1000 group-hover:scale-105 group-hover:bg-[#111]"></div>
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+                
+                <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8 z-10">
+                    <h3 class="text-2xl md:text-4xl font-heading text-white mb-6 font-light">Marca Própria <span class="italic text-brand-gold">Premium</span></h3>
+                    <p class="text-gray-300 font-light opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-base max-w-md">
+                        Produtos de rotisseria com padrão 'Casa Santa Luzia', utilizando atmosfera modificada (MAP) para encantar o cliente e reduzir drasticamente as perdas.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sessão 4: Projetos Recomendados (Accordion Refinado) -->
+    <section id="projetos" class="py-32 bg-brand-light text-brand-dark relative marble-bg">
+        <div class="absolute inset-0 bg-brand-light/95 z-0"></div> <!-- Textura sutil no fundo claro -->
+        
+        <div class="container mx-auto px-6 lg:px-12 max-w-5xl relative z-10 fade-in-up">
+            
+            <div class="text-center mb-20">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="h-[1px] w-8 bg-brand-gold"></div>
+                    <span class="text-brand-gold uppercase text-[10px] tracking-widest font-bold">O Plano de Ação</span>
+                    <div class="h-[1px] w-8 bg-brand-gold"></div>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-heading font-light text-brand-darker">Prioridades <span class="italic text-brand-gold">Estratégicas</span></h2>
+            </div>
+
+            <div class="space-y-2">
+                <!-- Accordion Item 1 -->
+                <div class="accordion-item bg-transparent border-b border-gray-300 overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center py-8 text-left focus:outline-none group" aria-expanded="false">
+                        <span class="text-2xl md:text-3xl font-heading text-brand-dark group-hover:text-brand-gold transition-colors font-light">01. Gestão Descomplicada (Dashboards IA)</span>
+                        <span class="text-brand-gold text-3xl font-light transform transition-transform duration-300 icon-plus">+</span>
+                    </button>
+                    <div class="accordion-content px-0 overflow-hidden max-h-0 transition-all duration-300">
+                        <p class="text-gray-600 pb-8 font-light leading-relaxed text-lg max-w-3xl">
+                            Painéis automatizados com Inteligência Artificial (Gemini) para controle da Brigada de Validades (45 dias = amarelo, 30 dias = alerta vermelho, 15 dias = rebaixo obrigatório pelo comercial). Solução desenhada para salvar horas de operação gerencial e reduzir drasticamente as perdas por validade. Custo de implantação otimizado com alto impacto imediato.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 2 -->
+                <div class="accordion-item bg-transparent border-b border-gray-300 overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center py-8 text-left focus:outline-none group" aria-expanded="false">
+                        <span class="text-2xl md:text-3xl font-heading text-brand-dark group-hover:text-brand-gold transition-colors font-light">02. Caixa Silencioso e Rápido (AX Tecnologia)</span>
+                        <span class="text-brand-gold text-3xl font-light transform transition-transform duration-300 icon-plus">+</span>
+                    </button>
+                    <div class="accordion-content px-0 overflow-hidden max-h-0 transition-all duration-300">
+                        <p class="text-gray-600 pb-8 font-light leading-relaxed text-lg max-w-3xl">
+                            Substituição de luzes e chamados em voz alta por pagers e pulseiras integradas para fiscais de caixa. Uma implementação imediata que elimina atrito, agiliza aprovações e eleva o nível da experiência do cliente (CX) no momento mais crítico: o checkout.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 3 -->
+                <div class="accordion-item bg-transparent border-b border-gray-300 overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center py-8 text-left focus:outline-none group" aria-expanded="false">
+                        <span class="text-2xl md:text-3xl font-heading text-brand-dark group-hover:text-brand-gold transition-colors font-light">03. Rotisseria Premium (MAP / Selovac)</span>
+                        <span class="text-brand-gold text-3xl font-light transform transition-transform duration-300 icon-plus">+</span>
+                    </button>
+                    <div class="accordion-content px-0 overflow-hidden max-h-0 transition-all duration-300">
+                        <p class="text-gray-600 pb-8 font-light leading-relaxed text-lg max-w-3xl">
+                            Uso de proteínas prontas aliadas a seladoras de embalagem a vácuo/MAP. Projeto estratégico para a alavancagem de margem. Desafoga a mão de obra especializada na loja, estende a validade (shelf-life) e consolida a percepção de uma marca própria com alto valor agregado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão 5: Roadmap (Timeline Refinada) -->
+    <section id="roadmap" class="py-32 bg-brand-dark relative">
+        <div class="container mx-auto px-6 lg:px-12 max-w-5xl fade-in-up">
+            <div class="text-center mb-20">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="h-[1px] w-8 bg-brand-gold"></div>
+                    <span class="text-brand-gold uppercase text-[10px] tracking-widest">Execução</span>
+                    <div class="h-[1px] w-8 bg-brand-gold"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-heading font-light text-brand-light">Do Planejamento à <span class="italic text-brand-gold">Ação</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Curto Prazo -->
+                <div class="bg-brand-darker border border-gray-800 p-10 hover:border-brand-gold/50 transition-colors duration-500 group">
+                    <span class="text-brand-gold text-sm tracking-widest uppercase mb-4 block">0 a 90 dias</span>
+                    <h3 class="text-3xl font-heading text-white mb-6 font-light group-hover:text-brand-gold transition-colors">Curto Prazo</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Implementação dos pagers (AX), criação dos Dashboards (IA Gemini), testes iniciais com fornecedores de refeições prontas (Don Jaime) e aquisição de impressoras portáteis K29.
+                    </p>
+                </div>
+
+                <!-- Médio Prazo -->
+                <div class="bg-brand-darker border border-gray-800 p-10 hover:border-brand-gold/50 transition-colors duration-500 group">
+                    <span class="text-brand-gold text-sm tracking-widest uppercase mb-4 block">3 a 12 meses</span>
+                    <h3 class="text-3xl font-heading text-white mb-6 font-light group-hover:text-brand-gold transition-colors">Médio Prazo</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Investimento em maquinário (Seladoras MAP e Fornos Combinados Prática/Ramalhos), estruturação do modelo de Retail Media (LedWave) e projetos pilotos de Balanças Inteligentes.
+                    </p>
+                </div>
+
+                <!-- Longo Prazo -->
+                <div class="bg-brand-darker border border-gray-800 p-10 hover:border-brand-gold/50 transition-colors duration-500 group">
+                    <span class="text-brand-gold text-sm tracking-widest uppercase mb-4 block">+ 12 meses</span>
+                    <h3 class="text-3xl font-heading text-white mb-6 font-light group-hover:text-brand-gold transition-colors">Longo Prazo</h3>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Implantação de Inteligência Artificial para Prevenção de Perdas nas docas (Darwin/Inwave e Genesis/Nextop) e testes de integração com Carrinhos Inteligentes (Nextop) associados ao Clube de Vantagens.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão 5.5: Ranking Top 10 -->
+    <section id="ranking" class="py-24 bg-brand-light text-brand-dark relative marble-bg">
+        <div class="absolute inset-0 bg-brand-light/95 z-0"></div>
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl relative z-10 fade-in-up">
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="h-[1px] w-8 bg-brand-gold"></div>
+                    <span class="text-brand-gold uppercase text-[10px] tracking-widest font-bold">Classificação Estratégica</span>
+                    <div class="h-[1px] w-8 bg-brand-gold"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-heading font-light text-brand-darker mb-4">Top 10 <span class="italic text-brand-gold">Iniciativas</span></h2>
+                <p class="text-gray-600 font-light text-lg">As melhores oportunidades mapeadas para o São Luiz.</p>
+            </div>
+            
+            <div class="bg-white/60 backdrop-blur border border-brand-gold/30 p-8 md:p-12 shadow-sm relative">
+                <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent"></div>
+                <ol class="list-decimal list-inside space-y-6 text-gray-700 font-light text-lg marker:text-brand-gold marker:font-bold">
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Dashboards IA (Brigada Validade)</strong><br/><span class="text-sm text-gray-500">Baixo custo, alto impacto em perda</span></li>
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Sistema de Comunicação AX (Pulseiras de caixa)</strong><br/><span class="text-sm text-gray-500">Implementação imediata, melhora filas</span></li>
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Rotisseria MAP/Vácuo (Selovac/Delpak)</strong><br/><span class="text-sm text-gray-500">Estratégico para Margem</span></li>
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Proteínas e Refeições Prontas (Don Jaime)</strong><br/><span class="text-sm text-gray-500">Desafoga mão de obra</span></li>
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Retail Media (LedWave)</strong><br/><span class="text-sm text-gray-500">Geração de novas receitas</span></li>
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Câmeras de IA para Auditoria de Frente de Caixa (Nextop/Inwave)</strong><br/><span class="text-sm text-gray-500">Prevenção ativa</span></li>
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Balanças Inteligentes com Câmera</strong><br/><span class="text-sm text-gray-500">Para SCO e balcões</span></li>
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Impressoras Portáteis (K29)</strong><br/><span class="text-sm text-gray-500">Agilidade em precificação de chão de loja</span></li>
+                    <li class="pl-2 border-b border-gray-200 pb-4"><strong class="font-medium text-brand-darker">Fornos Combinados / Processadores (Prática/Ramalhos)</strong><br/><span class="text-sm text-gray-500">Redução de tempo de preparo industrial</span></li>
+                    <li class="pl-2 pt-2"><strong class="font-medium text-brand-darker">Carrinhos Inteligentes (Nextop)</strong><br/><span class="text-sm text-gray-500">Alto investimento, mas diferencial competitivo</span></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessão 6: Conclusão & CTA -->
+    <section id="cta" class="py-32 bg-brand-gold relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-gold to-[#a38d4f] z-0"></div>
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl relative z-10 text-center fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-heading text-brand-darker mb-8 font-light leading-snug">
+                O Próximo Passo
+            </h2>
+            <p class="text-brand-darker/80 font-medium leading-relaxed mb-12 text-xl max-w-3xl mx-auto">
+                A tecnologia já está disponível e validada no mercado. O sucesso desta virada dependerá unicamente da nossa capacidade de quebrar barreiras culturais. A aprovação da verba inicial para os "Quick Wins" trará o Retorno Sobre o Investimento em menos de 3 meses.
+            </p>
+            <a href="#" class="inline-flex items-center justify-center border-2 border-brand-darker bg-brand-darker text-brand-gold hover:bg-transparent hover:text-brand-darker px-10 py-5 transition-all duration-500 uppercase text-xs tracking-widest font-bold group" onclick="alert('Obrigado! O orçamento será avaliado com prioridade máxima na próxima reunião do conselho.'); return false;">
+                <span>Aprovar Orçamento Piloto</span>
+                <svg class="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Accordion functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionButtons = document.querySelectorAll('.accordion-header');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('.icon-plus');
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                    
+                    // Fechar todos
+                    document.querySelectorAll('.accordion-content').forEach(item => {
+                        item.style.maxHeight = null;
+                        item.classList.remove('py-4');
+                    });
+                    document.querySelectorAll('.accordion-header').forEach(btn => {
+                        btn.setAttribute('aria-expanded', 'false');
+                        const btnIcon = btn.querySelector('.icon-plus');
+                        if (btnIcon) btnIcon.style.transform = 'rotate(0deg)';
+                    });
+
+                    // Abrir o selecionado se não estava aberto
+                    if (!isExpanded) {
+                        button.setAttribute('aria-expanded', 'true');
+                        content.classList.add('py-4');
+                        content.style.maxHeight = content.scrollHeight + 32 + "px"; // 32 is roughly py-4 (1rem x 2)
+                        if (icon) icon.style.transform = 'rotate(45deg)';
+                    }
+                });
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Mobile menu (optional basic implementation)
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            mobileBtn.addEventListener('click', () => {
+                alert('Menu mobile acionado (expansão a ser finalizada caso hajam mais páginas)');
+            });
+        });
+    </script>
+</body>
+</html>
