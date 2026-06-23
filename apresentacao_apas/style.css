@@ -1,0 +1,354 @@
+/* Global Variables based on São Luiz Branding */
+:root {
+    --color-bg-dark: #091b10;
+    --color-bg-light: #0d2616;
+    --color-green-neon: #00E676;
+    --color-green-dark: #00c853;
+    --color-yellow: #FFD700;
+    --color-yellow-dark: #FFC107;
+    --color-white: #ffffff;
+    --color-text-dim: #b0bec5;
+    --font-main: 'Inter', sans-serif;
+}
+
+/* Base Reveal.js overrides */
+.reveal {
+    font-family: var(--font-main);
+    color: var(--color-white);
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    font-family: var(--font-main);
+    text-transform: none;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-white);
+}
+
+/* Typography Highlights */
+.highlight-green {
+    color: var(--color-green-neon);
+}
+
+.highlight-yellow {
+    color: var(--color-yellow);
+}
+
+.title-main {
+    font-size: 3.5em !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    margin-bottom: 20px !important;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+    font-size: 1.2em !important;
+    font-weight: 300 !important;
+    color: var(--color-text-dim) !important;
+}
+
+.section-title {
+    font-size: 2.5em !important;
+    margin-bottom: 40px !important;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 60px 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel.accent-green {
+    border-top: 4px solid var(--color-green-neon);
+}
+
+.glass-panel.accent-yellow {
+    border-top: 4px solid var(--color-yellow);
+}
+
+/* Layouts */
+.content-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    border-radius: 16px;
+    border-left: 4px solid var(--color-green-neon);
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 30px 0;
+}
+
+/* Grid for "O Que Vimos" */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.grid-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.grid-item .icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.grid-item h3 {
+    font-size: 1.3em !important;
+    color: var(--color-green-neon);
+    margin-bottom: 15px !important;
+}
+
+.grid-item p {
+    font-size: 0.9em !important;
+    color: var(--color-text-dim);
+}
+
+/* Lists */
+.trend-list {
+    list-style: none !important;
+    padding: 0;
+    margin: 0 !important;
+}
+
+.trend-list li {
+    background: rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid var(--color-yellow);
+}
+
+.trend-list li strong {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Fit Items (Slide 5) */
+.fit-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.fit-item h3 {
+    font-size: 1.2em !important;
+    margin-bottom: 5px !important;
+    color: var(--color-white);
+}
+
+.fit-item p {
+    font-size: 0.9em !important;
+    color: var(--color-text-dim);
+    margin: 0 !important;
+}
+
+/* Project Cards */
+.project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.project-badge {
+    background: var(--color-green-neon);
+    color: #000;
+    font-weight: 800;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.project-info h3 {
+    font-size: 1.2em !important;
+    margin: 0 0 5px 0 !important;
+}
+
+.project-info p {
+    font-size: 0.85em !important;
+    color: var(--color-text-dim);
+    margin: 0 !important;
+}
+
+/* ROI Container */
+.roi-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.roi-item {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.2) 100%);
+    padding: 30px 20px;
+    border-radius: 16px;
+    border-top: 3px solid var(--color-yellow);
+}
+
+.roi-item h3 {
+    font-size: 1.2em !important;
+    margin-bottom: 15px !important;
+}
+
+.roi-item .payback {
+    color: var(--color-green-neon);
+    font-weight: 700;
+    font-size: 1.1em !important;
+    margin-bottom: 15px !important;
+}
+
+.roi-item p {
+    font-size: 0.8em !important;
+    color: var(--color-text-dim);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px dashed var(--color-green-neon);
+    text-align: left;
+}
+
+.timeline-event {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -39px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-green-neon);
+    border: 3px solid var(--color-bg-dark);
+}
+
+.timeline-event .time {
+    font-weight: 800;
+    color: var(--color-yellow);
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.timeline-event .desc {
+    font-size: 0.9em;
+    color: var(--color-white);
+}
+
+/* Mascot Placeholder */
+.mascot-placeholder {
+    margin-top: 40px;
+    display: inline-block;
+    background: rgba(255,215,0,0.1);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--color-yellow);
+}
+
+.mascot-text {
+    font-size: 0.8em !important;
+    font-weight: 700;
+    color: var(--color-yellow);
+    letter-spacing: 2px;
+}
+
+/* Call to Action */
+.cta-box {
+    margin-top: 40px;
+    background: var(--color-green-neon);
+    color: #000;
+    padding: 25px;
+    border-radius: 16px;
+}
+
+.cta-box h3 {
+    color: #000 !important;
+    margin: 0 0 10px 0 !important;
+    font-size: 1.2em !important;
+}
+
+.cta-box p {
+    margin: 0 !important;
+    font-weight: 600;
+    font-size: 1.1em !important;
+}
+
+.conclusion-text {
+    font-size: 1.1em !important;
+    line-height: 1.5 !important;
+}
+
+/* Instagram Integration */
+.brand-assets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--color-yellow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    object-fit: cover;
+    object-position: center top;
+}
+
+.instagram-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.insta-post {
+    width: 350px;
+    border-radius: 20px;
+    border: 3px solid rgba(255,255,255,0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.insta-post:hover {
+    transform: scale(1.05);
+}
