@@ -237,11 +237,13 @@
                         </div>
                         
                         <div class="relative w-full aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden shadow-sm border border-brand-gold/20 group">
-                            <div class="absolute inset-0 bg-brand-dark/5 flex items-center justify-center z-0">
-                                <span class="text-gray-400 text-sm">Carregando Folder Técnico...</span>
+                            <div class="absolute inset-0 bg-brand-dark/5 flex flex-col items-center justify-center z-0 text-center px-4" id="pdf-placeholder-msg">
+                                <svg class="w-10 h-10 text-brand-gold mb-3 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                <span class="text-gray-500 font-medium text-lg mb-1">Visualizador de Folders</span>
+                                <span class="text-gray-400 text-sm">Selecione uma das abas acima para carregar o catálogo.</span>
                             </div>
-                            <object id="pdf-viewer" data="apresentacao_apas/Documento Escaneado 3.pdf" type="application/pdf" class="absolute inset-0 w-full h-full z-10" aria-label="Folder Técnico">
-                                <p class="p-6 text-center text-sm text-gray-500 relative z-20" id="pdf-fallback">O seu navegador não suporta visualização de PDFs. <br><a href="apresentacao_apas/Documento Escaneado 3.pdf" class="text-brand-gold hover:underline" id="pdf-link">Faça o download do folder aqui</a>.</p>
+                            <object id="pdf-viewer" data="" type="application/pdf" class="absolute inset-0 w-full h-full z-10 hidden" aria-label="Folder Técnico">
+                                <p class="p-6 text-center text-sm text-gray-500 relative z-20" id="pdf-fallback">O seu navegador não suporta visualização de PDFs. <br><a href="#" class="text-brand-gold hover:underline" id="pdf-link">Faça o download do folder aqui</a>.</p>
                             </object>
                         </div>
                     </div>
@@ -538,12 +540,17 @@
             window.changePdf = function(tabIndex) {
                 const viewer = document.getElementById('pdf-viewer');
                 const link = document.getElementById('pdf-link');
+                const placeholder = document.getElementById('pdf-placeholder-msg');
                 
                 const pdfs = [
                     "apresentacao_apas/Documento Escaneado 3.pdf",
                     "apresentacao_apas/Documento Escaneado 4.pdf",
                     "apresentacao_apas/Documento Escaneado 5.pdf"
                 ];
+                
+                // Exibe o object do PDF e esconde a mensagem inicial
+                viewer.classList.remove('hidden');
+                if (placeholder) placeholder.style.display = 'none';
                 
                 viewer.setAttribute('data', pdfs[tabIndex - 1]);
                 link.setAttribute('href', pdfs[tabIndex - 1]);
