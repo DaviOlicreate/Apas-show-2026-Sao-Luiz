@@ -1,0 +1,6 @@
+*.mp3
+*.wav
+*.opus
+ffmpeg
+ffmpeg*.zip
+.DS_Store
